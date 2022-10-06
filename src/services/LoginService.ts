@@ -17,7 +17,7 @@ class LoginService {
       return { type: 401, message: { message: 'Username or password invalid' } };
     }
     const tokenUser = await this.generateToken(userLogin);
-    return { type: 201, message: { token: tokenUser } };  
+    return { type: 200, message: { token: tokenUser } };  
   }
 
   public generateToken = async (user: Login) => {
