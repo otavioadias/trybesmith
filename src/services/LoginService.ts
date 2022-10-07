@@ -22,7 +22,11 @@ class LoginService {
 
   public generateToken = async (user: Login) => {
     const payload = { username: user.username };
-    const token = jwt.sign(payload, JWT_SECRET);
+    const jwtConfig: object = {
+      expiresIn: '7d', 
+      algorithm: 'HS256',
+    };
+    const token = jwt.sign(payload, JWT_SECRET, jwtConfig);
     return token;
   };
 }

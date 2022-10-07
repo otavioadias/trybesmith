@@ -45,8 +45,17 @@ const userSchema = Joi.object({
   }),
 });
 
+const orderSchema = Joi.object({
+  productsIds: Joi.array().required().min(1).messages({
+    'array-type': '"productsIds" must be an array',
+    'array-empty': '"productsIds" is required',
+    'array-min': '"productsIds" must include only numbers',
+  }),
+});
+
 export default {
   loginSchema,
   productsSchema,
   userSchema,
+  orderSchema,
 };
