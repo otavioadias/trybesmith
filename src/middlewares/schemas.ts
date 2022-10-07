@@ -9,6 +9,20 @@ const loginSchema = Joi.object({
   }),
 });
 
+const productsSchema = Joi.object({
+  name: Joi.string().required().min(3).messages({
+    'string-type': '"name" must be a string',
+    'string-empty': '"name" is required',
+    'string-min': '"name" length must be at least 3 characters long',
+  }),
+  amount: Joi.string().required().min(3).messages({
+    'string-type': '"amount" must be a string',
+    'string-empty': '"amount" is required',
+    'string-min': '"amount" length must be at least 3 characters long',
+  }),
+});
+
 export default {
   loginSchema,
+  productsSchema,
 };
